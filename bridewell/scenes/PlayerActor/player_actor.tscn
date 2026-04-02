@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://drprkm1np5cw"]
+
+[ext_resource type="Shader" uid="uid://byunfs5xaysre" path="res://shaders and styles/actor.gdshader" id="1_6wjvm"]
+[ext_resource type="Script" uid="uid://dfv8y44f3sumh" path="res://scenes/PlayerActor/player_actor.gd" id="1_rjqlh"]
+[ext_resource type="Texture2D" uid="uid://bfqr4ll8qvk7p" path="res://assets/spritesheets/Actors.png" id="2_rjqlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uac4d"]
+size = Vector2(14, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wjvm"]
+shader = ExtResource("1_6wjvm")
+shader_parameter/original_0 = Color(1, 1, 1, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(1, 1, 1, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpsbw"]
+atlas = ExtResource("2_rjqlh")
+region = Rect2(0, 0, 16, 16)
+
+[node name="PlayerActor" type="Node2D" unique_id=1881512470]
+script = ExtResource("1_rjqlh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=913748125]
+
+[node name="Camera2D2" type="Camera2D" parent="Area2D" unique_id=1964388018]
+zoom = Vector2(2, 2)
+limit_enabled = false
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=756398025]
+shape = SubResource("RectangleShape2D_uac4d")
+
+[node name="RayCast2D" type="RayCast2D" parent="Area2D" unique_id=1823741976]
+target_position = Vector2(0, 16)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1641072409]
+clip_children = 1
+invert_border = 2.0
+polygon = PackedVector2Array(-6, -6, -5, -6, -5, -7, 0, -7, 1, -7, 1, -6, 2, -6, 2, -1, 3, -1, 3, -2, 4, -2, 4, -3, 5, -3, 5, -4, 7, -4, 8, -4, 8, 0, 7, 0, 7, 1, 6, 1, 6, 2, 6, 4, 1, 4, 1, 5, 2, 5, 2, 8, -6, 8, -6, 7, -6, 6, -5, 6, -5, 5, -5, 5, -7, 5, -7, 4, -8, 4, -8, -1, -7, -1, -7, -2, -6, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/Polygon2D" unique_id=873847598]
+texture_filter = 1
+material = SubResource("ShaderMaterial_6wjvm")
+texture = SubResource("AtlasTexture_tpsbw")

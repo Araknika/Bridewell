@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bgrshc5dy6dh4"]
+
+[ext_resource type="Script" uid="uid://dnsykdintudyu" path="res://scripts/PlayerData/player_inventory.gd" id="1_hkijj"]
+
+[node name="PlayerData" type="Node" unique_id=1159537495]
+
+[node name="PlayerStats" type="Node" parent="." unique_id=1224918767]
+
+[node name="PlayerInventory" type="Node" parent="." unique_id=1594941022]
+script = ExtResource("1_hkijj")
