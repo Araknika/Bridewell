@@ -1,0 +1,55 @@
+[gd_scene format=4 uid="uid://bokusceqcjwhn"]
+
+[ext_resource type="Shader" uid="uid://byunfs5xaysre" path="res://shaders and styles/actor.gdshader" id="1_qt8v0"]
+[ext_resource type="TileSet" uid="uid://demd1agfq4h75" path="res://shaders and styles/Tileset pack.tres" id="2_g6p7r"]
+[ext_resource type="PackedScene" uid="uid://drprkm1np5cw" path="res://scenes/PlayerActor/player_actor.tscn" id="6_lu0rr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fc6y3"]
+shader = ExtResource("1_qt8v0")
+shader_parameter/original_0 = Color(1, 1, 1, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.7204675, 0.7204675, 0.7204675, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6p7r"]
+shader = ExtResource("1_qt8v0")
+shader_parameter/original_0 = Color(1, 1, 1, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0.72156864, 0.72156864, 0.72156864, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 0)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[node name="TestingLevel" type="Node2D" unique_id=2125418088]
+
+[node name="Background" type="ColorRect" parent="." unique_id=825340155]
+z_index = -2
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=293651799]
+material = SubResource("ShaderMaterial_fc6y3")
+tile_map_data = PackedByteArray("AAD4/wMAAAAEAAAAAAD4/wQAAAADAAEAAAD4/wUAAAADAAEAAAD4/wYAAAADAAEAAAD4/wcAAAAEAAMAAAD5/wMAAAABAAMAAAD5/wcAAAABAAMAAAD6/wcAAAABAAMAAAD7/wMAAAABAAMAAAD7/wcAAAABAAMAAAD8/wMAAAAHAAAAAAD8/wQAAAADAAEAAAD8/wUAAAADAAEAAAD8/wYAAAADAAEAAAD8/wcAAAAHAAMAAAA=")
+tile_set = ExtResource("2_g6p7r")
+
+[node name="PlayerActor" parent="." unique_id=1881512470 instance=ExtResource("6_lu0rr")]
+position = Vector2(-88, 88)
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1364185015]
+z_index = 1
+material = SubResource("ShaderMaterial_g6p7r")
+tile_map_data = PackedByteArray("AAD6/wMAAgAFAAAAAAA=")
+tile_set = ExtResource("2_g6p7r")

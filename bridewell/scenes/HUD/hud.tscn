@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bw4vcny08mn4r"]
+
+[ext_resource type="Shader" uid="uid://byunfs5xaysre" path="res://shaders and styles/actor.gdshader" id="1_glunx"]
+[ext_resource type="Texture2D" uid="uid://dmyy8xgta2m35" path="res://assets/UI/UI.png" id="2_jjobl"]
+[ext_resource type="Script" uid="uid://dsq0gldkchqvl" path="res://scenes/HUD/text_box.gd" id="3_epp0c"]
+[ext_resource type="FontFile" uid="uid://bvq73l7qg1dfu" path="res://assets/fonts/c-64.ttf" id="3_jjobl"]
+[ext_resource type="PackedScene" uid="uid://bxuj6i2xtax0e" path="res://scenes/HUD/PlayerMenus/player_menus.tscn" id="5_r7rnh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epp0c"]
+shader = ExtResource("1_glunx")
+shader_parameter/original_0 = Color(0, 0, 0, 1)
+shader_parameter/original_1 = Color(0, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 0)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+
+[node name="HUD" type="Control" unique_id=1633674171]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1703146698]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1799762626]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LeftHUD" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=134457509]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftHUD" unique_id=1660369109]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="GameView" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer" unique_id=1922505296]
+custom_minimum_size = Vector2(360, 360.8)
+layout_mode = 2
+
+[node name="NinePatchRect1" type="NinePatchRect" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer/GameView" unique_id=471589063]
+material = SubResource("ShaderMaterial_epp0c")
+layout_mode = 2
+texture = ExtResource("2_jjobl")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="TextBox" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer" unique_id=1904700048]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_epp0c")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer/TextBox" unique_id=1044224937]
+layout_mode = 2
+texture = ExtResource("2_jjobl")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer/TextBox" unique_id=191728420]
+custom_minimum_size = Vector2(328, 104)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/LeftHUD/VBoxContainer/TextBox/MarginContainer" unique_id=548686656]
+layout_mode = 2
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("3_jjobl")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "help
+sdada"
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+
+[node name="RightHUD" type="MarginContainer" parent="MarginContainer/HBoxContainer" unique_id=1081878839]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightHUD" unique_id=599785303]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PlayerMenus" parent="MarginContainer/HBoxContainer/RightHUD/VBoxContainer" unique_id=1495425944 instance=ExtResource("5_r7rnh")]
+layout_mode = 2
+
+[node name="WorldMenus" type="MarginContainer" parent="MarginContainer/HBoxContainer/RightHUD/VBoxContainer" unique_id=412554324]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/HBoxContainer/RightHUD/VBoxContainer/WorldMenus" unique_id=136789462]
+layout_mode = 2
+texture = ExtResource("2_jjobl")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
